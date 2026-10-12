@@ -20,8 +20,8 @@ export function PartyStory() {
                 Write this on the fridge. The fox already did, in frosting.
               </p>
             </div>
-            <div className="peek-bob w-24 shrink-0 md:hidden">
-              <Creature name="fernPeek" alt="" className="w-full" />
+            <div className="skater-bob w-24 shrink-0 md:hidden">
+              <Creature name="fern" alt="" className="w-full" />
             </div>
           </div>
 

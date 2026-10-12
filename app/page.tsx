@@ -35,8 +35,8 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:pl-24">
             <div className="reveal">
               <div className="mb-4 flex items-end gap-3 lg:hidden">
-                <div className="peek-bob w-28">
-                  <Creature name="buttonPeek" alt="" className="w-full" />
+                <div className="skater-bob w-28">
+                  <Creature name="button" alt="" className="w-full" />
                 </div>
                 <p className="font-heading text-lg">Button is checking the list.</p>
               </div>

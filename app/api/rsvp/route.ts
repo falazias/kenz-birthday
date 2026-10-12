@@ -1,8 +1,6 @@
 import { confirmationMessage, validateRsvp } from "@/lib/rsvp";
 import { appendRsvp } from "@/lib/rsvp-store";
 
-export const runtime = "nodejs";
-
 export async function POST(request: Request) {
   let body: unknown;
   try {
