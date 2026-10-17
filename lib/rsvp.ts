@@ -111,5 +111,5 @@ export function confirmationMessage(rsvp: RsvpInput) {
   const count =
     rsvp.partySize === 1 ? "One skate is on the list" : `${rsvp.partySize} people are on the list`;
 
-  return `You're on the floor, ${rsvp.name}. ${count}. Fern already saved you a lane, and Button is practicing the wave.`;
+  return `You're on the floor, ${rsvp.name}. ${count}. A lane is saved.`;
 }

@@ -151,13 +151,6 @@ export function RsvpForm() {
             className="flex flex-col gap-4"
             noValidate
           >
-            {status === "idle" && name.trim().length === 0 ? (
-              <p className="rounded-2xl border-2 border-dashed border-mango bg-sun/50 px-3 py-3 text-sm font-semibold">
-                No reply from this browser yet. The cheer section stays empty until a name lands
-                here.
-              </p>
-            ) : null}
-
             {status === "loading" ? (
               <p role="status" className="font-heading font-bold text-rink">
                 Hold the rail. Saving your spot…
@@ -267,7 +260,7 @@ export function RsvpForm() {
                 value={note}
                 maxLength={500}
                 disabled={status === "loading"}
-                placeholder="Allergies, tiny siblings, or a warning that Fern will be raced."
+                placeholder="Allergies, tiny siblings, or anything we should know."
                 className="min-h-24 rounded-xl bg-white px-3 text-base md:text-base"
                 onChange={(event) => {
                   setNote(event.target.value);

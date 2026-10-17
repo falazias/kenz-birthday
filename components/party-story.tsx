@@ -1,9 +1,8 @@
 import { AddressLink, MapsButton } from "@/components/address-link";
-import { Creature } from "@/components/creature";
 import { TiltCard } from "@/components/tilt-card";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { AREA, crew, plan, VENUE, when } from "@/lib/party";
+import { AREA, plan, VENUE, when } from "@/lib/party";
 import { cn } from "cn";
 
 export function PartyStory() {
@@ -11,21 +10,14 @@ export function PartyStory() {
     <>
       <section id="details" className="scroll-mt-28 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="reveal flex items-end justify-between gap-4">
-            <div>
-              <h2 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">
-                The facts, no small print
-              </h2>
-              <p className="mt-2 max-w-xl text-lg">
-                Write this on the fridge. The fox already did, in frosting.
-              </p>
-            </div>
-            <div className="skater-bob w-24 shrink-0 md:hidden">
-              <Creature name="fern" alt="" className="w-full" />
-            </div>
+          <div className="reveal">
+            <h2 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">
+              The facts, no small print
+            </h2>
+            <p className="mt-2 max-w-xl text-lg">Write this on the fridge.</p>
           </div>
 
-          <div className="mt-10 grid gap-8 md:mt-24 md:grid-cols-3">
+          <div className="mt-10 grid gap-8 md:grid-cols-3">
             <div className="reveal">
               <TiltCard>
                 <Card className="h-full bg-card shadow-[5px_5px_0_#ffc83a]">
@@ -47,14 +39,7 @@ export function PartyStory() {
               </TiltCard>
             </div>
 
-            <div className="reveal group relative" style={{ animationRange: "entry 8% entry 42%" }}>
-              <div className="pointer-events-none absolute -top-20 left-4 hidden w-36 md:block">
-                <div className="peek-bob">
-                  <div className="transition-transform duration-200 group-hover:-translate-y-3 group-hover:scale-105">
-                    <Creature name="fernPeek" alt="" className="w-full" />
-                  </div>
-                </div>
-              </div>
+            <div className="reveal" style={{ animationRange: "entry 8% entry 42%" }}>
               <TiltCard>
                 <Card className="relative z-10 h-full bg-card shadow-[5px_5px_0_#e23b2c]">
                   <CardContent className="flex h-full flex-col gap-3">
@@ -70,9 +55,7 @@ export function PartyStory() {
                         "party-press mt-1 h-11 rounded-full px-4 font-heading",
                       )}
                     />
-                    <p>
-                      Shaded outdoor rink, water on one side, birthday noise on the other.
-                    </p>
+                    <p>Shaded outdoor rink, water on one side, birthday noise on the other.</p>
                   </CardContent>
                 </Card>
               </TiltCard>
@@ -92,7 +75,7 @@ export function PartyStory() {
                     </p>
                     <p>
                       The rink rents quad skates and pads if you don&apos;t own a pair. Tiny skaters
-                      can ask for a skate mate. Button promises not to comment.
+                      can ask for a skate mate.
                     </p>
                   </CardContent>
                 </Card>
@@ -102,82 +85,47 @@ export function PartyStory() {
         </div>
       </section>
 
-      <section id="crew" className="scroll-mt-28 bg-mango/15 px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="reveal max-w-2xl">
-            <h2 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">
-              Meet the floor committee
+      <section id="plan" className="scroll-mt-28 relative overflow-hidden bg-[#1b1464] px-4 py-16 text-cream sm:px-6 sm:py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          {[
+            "top-8 left-[8%]",
+            "top-16 right-[12%]",
+            "top-1/3 left-[18%]",
+            "bottom-16 right-[20%]",
+            "bottom-10 left-[40%]",
+            "top-1/2 right-[6%]",
+          ].map((spot, index) => (
+            <span
+              key={spot}
+              className={cn("twinkle absolute text-sun", spot, index % 2 ? "text-xl" : "text-sm")}
+              style={{ animationDelay: `${index * 0.45}s` }}
+            >
+              ★
+            </span>
+          ))}
+        </div>
+        <div className="relative mx-auto max-w-3xl">
+          <div className="reveal">
+            <p className="font-heading text-sm font-bold tracking-wide text-sun uppercase">
+              Skate · Laugh · Make magic
+            </p>
+            <h2 className="mt-2 font-heading text-4xl font-bold tracking-tight sm:text-5xl">
+              The afternoon, loosely
             </h2>
-            <p className="mt-2 text-lg">
-              Three regulars got here early and will not be moved. Hover them. They notice.
+            <p className="mt-2 max-w-xl text-lg text-cream/80">
+              A plan the floor is allowed to edit. Cake stays where it is.
             </p>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {crew.map((member, index) => (
-              <div key={member.id} className="reveal" style={{ animationRange: `entry ${index * 6}% entry ${36 + index * 6}%` }}>
-                <TiltCard>
-                  <Card className={cn("h-full bg-card", member.shadow)}>
-                    <CardContent className="flex h-full flex-col gap-3">
-                      <div className={cn("flex h-56 items-end justify-center overflow-hidden rounded-3xl", member.wash)}>
-                        <div className="skater-bob" style={{ animationDelay: `${index * 0.15}s` }}>
-                          <div className="transition-transform duration-200 hover:-translate-y-2 hover:scale-110 hover:-rotate-6">
-                            <Creature
-                              name={member.image}
-                              className="h-52 w-auto"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <p className="font-heading text-sm font-bold tracking-wide text-rink uppercase">
-                        {member.role}
-                      </p>
-                      <h3 className="font-heading text-3xl font-bold">{member.name}</h3>
-                      <p>{member.bio}</p>
-                    </CardContent>
-                  </Card>
-                </TiltCard>
-              </div>
+          <ol className="mt-8 space-y-5 border-l-4 border-sun pl-6">
+            {plan.map((item) => (
+              <li key={item.time} className="reveal relative">
+                <span className="absolute top-1 -left-[1.95rem] size-4 rounded-full border-4 border-rink bg-sun" />
+                <p className="font-heading text-lg font-bold text-sun">{item.time}</p>
+                <h3 className="font-heading text-2xl font-bold">{item.title}</h3>
+                <p className="mt-1 max-w-xl text-cream/80">{item.body}</p>
+              </li>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="plan" className="scroll-mt-28 px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1fr_16rem]">
-          <div>
-            <div className="reveal">
-              <h2 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">
-                The afternoon, loosely
-              </h2>
-              <p className="mt-2 max-w-xl text-lg">
-                A plan the floor is allowed to edit. Cake stays where it is.
-              </p>
-            </div>
-            <ol className="mt-8 space-y-5 border-l-4 border-rink pl-6">
-              {plan.map((item) => (
-                <li key={item.time} className="reveal relative">
-                  <span className="absolute top-1 -left-[1.95rem] size-4 rounded-full border-4 border-sun bg-rink" />
-                  <p className="font-heading text-lg font-bold text-rink">{item.time}</p>
-                  <h3 className="font-heading text-2xl font-bold">{item.title}</h3>
-                  <p className="mt-1 max-w-xl">{item.body}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className="reveal mx-auto w-52 text-center">
-            <div className="float-bob">
-              <button
-                type="button"
-                className="party-press border-0 bg-transparent p-0"
-                aria-label="Miso bouncing on skates"
-              >
-                <span className="block transition-transform duration-200 hover:scale-110 hover:rotate-6">
-                  <Creature name="misoBounce" className="w-full" />
-                </span>
-              </button>
-            </div>
-            <p className="mt-2 font-heading text-lg">Miso is early. Miso is airborne.</p>
-          </div>
+          </ol>
         </div>
       </section>
     </>

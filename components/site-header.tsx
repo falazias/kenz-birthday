@@ -3,7 +3,6 @@ import { cn } from "cn";
 
 const links = [
   ["#details", "Details"],
-  ["#crew", "The crew"],
   ["#plan", "Plan"],
 ] as const;
 
